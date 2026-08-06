@@ -35,7 +35,7 @@
             position: relative;
             overflow-x: hidden;
             /* Здесь будет главное фоновое фото невесты. Замените на свое фото */
-            background: url('br-brideak.jpeg') no-repeat center top;
+            background: url('bride.jpeg') no-repeat center top;
             background-size: cover;
             background-attachment: fixed;
         }
@@ -158,44 +158,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
-        /* ФОРМА RSVP */
-        .rsvp-form input, .rsvp-form select {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            font-family: 'Montserrat', sans-serif;
-            text-align: center;
-            font-size: 1rem;
-        }
-        .rsvp-radio-group {
-            text-align: left;
-            margin: 15px 0;
-        }
-        .rsvp-radio-group label {
-            display: block;
-            margin: 8px 0;
-            cursor: pointer;
-        }
-        .submit-btn {
-            background: #8a1c14;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            margin-top: 10px;
-        }
         
-        .ornament {
-            color: #d4af37; /* Золотой цвет для узоров */
-            font-size: 1.5rem;
-            margin: 15px 0;
-        }
         /* СТИЛИ ДЛЯ КРАСИВОГО КАЛЕНДАРЯ И ПРОЯВЛЕНИЯ ТАЙМЕРА */
 .calendar-card {
     background: #8a1c14 !important; /* Насильно включаем бордовый фон */
@@ -302,7 +265,7 @@
         <div class="hero">
             <div class="hero-title-box">
                 <h1 class="bride-name">Aisha</h1>
-                <h2>Qyz Uzatu</h2>
+                <h2>Беташар</h2>
             </div>
             
             <div class="music-btn" id="musicToggle">
@@ -313,18 +276,15 @@
 
         <div class="section">
             <div class="invitation-text">
-                <p>Құрметті қонақтар,</p>
-                <p>ағайын-туыс, құда-жекжат,</p>
-                <p>нағашы-жиен, бөлелер,</p>
-                <p>дос-жарандар, әріптестер!</p>
                 <br>
                 <p>Сіздерді аяулы қызымыз</p>
                 <p style="font-family: 'Playfair Display'; font-size: 1.5rem; color: #8a1c14; font-weight: bold;">Айшаның</p>
-                <p>ұзату тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
+                <p>беташар тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
             </div>
             <div class="ornament">✦ ✦ ✦</div>
             <p>Той иелері:</p>
-            <div class="parents">Сайфилмалик - Ғайни</div>
+            <div class="parents"> Таңат - Набат </div>
+            <div class="parents"> Қуат - Багдагүл </div>
         </div>
 
         
@@ -368,9 +328,9 @@
                         <td>11</td>
                         <td>12</td>
                         <td>13</td>
-                        <td class="active-date">14</td> 
+                        <td>14</td> 
                         <td>15</td>
-                        <td>16</td>
+                        <td class="active-date">16</td>
                     </tr>
                     <tr>
                         <td>17</td>
@@ -402,7 +362,7 @@
                 </tbody>
             </table>
             
-            <div class="calendar-time" style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; letter-spacing: 1px;">сағат 17:30-да</div>
+            <div class="calendar-time" style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; letter-spacing: 1px;">сағат 12:00-де</div>
             
             <div class="ornament" style="color: #fff; margin-top: 25px;">✦ Тойға дейін: ✦</div>
             
@@ -417,12 +377,12 @@
 
         <div class="section">
             <h2>Мекен-жайымыз:</h2>
-            <p style="font-weight: 600; margin-bottom: 10px;">АЛМАТЫ ҚАЛАСЫ</p>
-            <p>Алмалы ауданы,</p>
-            <p>Мақатаев 121,</p>
-            <p style="font-weight: bold; color: #8a1c14;">"АҚ МЕКЕН" МЕЙРАМХАНАСЫ</p>
+            <p style="font-weight: 600; margin-bottom: 10px;">Маңғыстау облысы</p>
+            <p>Қарақия ауданы,</p>
+            <p>Жетібай ауылы,</p>
+            <p style="font-weight: bold; color: #8a1c14;">Мұнвйшы впч 12</p>
             
-            <a href="https://2gis.kz/almaty/geo/70000001025239646" target="_blank" class="map-btn">
+            <a href="https://2gis.kz/aktau/geo/70030076162632756" target="_blank" class="map-btn">
                 2GIS Картамен ашу
             </a>
         </div>
@@ -455,7 +415,7 @@
 
         // 2. Логика таймера обратного отсчета
         // Установите дату тоя (Год, Месяц - 1 (0 - январь, 8 - сентябрь), День, Часы, Минуты)
-        const weddingDate = new Date(2026, 7, 14, 18, 30, 0).getTime();
+        const weddingDate = new Date(2026, 7, 16, 12, 0, 0).getTime();
 
         const timerInterval = setInterval(() => {
             const now = new Date().getTime();
