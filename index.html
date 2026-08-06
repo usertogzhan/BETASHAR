@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
-   <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap');
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
 
 
 *{
@@ -22,45 +23,50 @@
 
 
 body{
-    font-family:'Montserrat', sans-serif;
-    background:#eee5dc;
-    color:#4b2b25;
+    background:#e8ddd2;
+    font-family:'Montserrat',sans-serif;
+    color:#5c4a42;
 }
 
 
 .phone-container{
-    width:100%;
+
     max-width:450px;
+    width:100%;
     min-height:100vh;
+
     background:
     linear-gradient(
-    rgba(255,248,240,.35),
-    rgba(255,248,240,.7)
+    rgba(255,250,245,.75),
+    rgba(255,250,245,.9)
     ),
     url('bbride.jpeg');
 
     background-size:cover;
-    background-position:center top;
-    background-attachment:fixed;
+    background-position:center;
 
     overflow:hidden;
-    box-shadow:0 0 30px rgba(0,0,0,.15);
+
 }
 
 
 
-/* первая страница */
+/* главный экран */
 
 .hero{
 
 height:100vh;
 
 display:flex;
+
 flex-direction:column;
-justify-content:space-between;
+
+justify-content:center;
+
 align-items:center;
 
-padding:60px 20px;
+padding:30px;
+
 
 }
 
@@ -68,34 +74,70 @@ padding:60px 20px;
 
 .hero-title-box{
 
-background:rgba(255,250,245,.88);
-
-padding:35px 20px;
-
-border-radius:25px;
-
-width:100%;
+background:transparent;
 
 text-align:center;
 
-box-shadow:0 10px 30px rgba(0,0,0,.12);
+border:1px solid rgba(180,145,110,.4);
+
+padding:50px 25px;
+
+position:relative;
 
 }
 
 
 
+.hero-title-box:before,
+.hero-title-box:after{
+
+content:"";
+
+position:absolute;
+
+width:40px;
+height:40px;
+
+border-color:#c9a36a;
+
+}
+
+
+
+.hero-title-box:before{
+
+top:-10px;
+left:-10px;
+
+border-top:2px solid;
+border-left:2px solid;
+
+}
+
+
+.hero-title-box:after{
+
+bottom:-10px;
+right:-10px;
+
+border-bottom:2px solid;
+border-right:2px solid;
+
+}
+
+
 
 .bride-name{
 
-font-family:'Pinyon Script',cursive;
+font-family:'Great Vibes',cursive;
 
-font-size:6rem;
+font-size:5.5rem;
 
 font-weight:400;
 
-color:#9b4b45;
+color:#b68b6a;
 
-margin-bottom:-15px;
+margin-bottom:15px;
 
 }
 
@@ -103,50 +145,67 @@ margin-bottom:-15px;
 
 h2{
 
-font-family:'Cormorant Garamond',serif;
+font-family:'Italiana',serif;
 
-font-size:2.4rem;
+font-size:2rem;
 
-font-weight:600;
+letter-spacing:5px;
 
-letter-spacing:3px;
+font-weight:400;
 
-color:#5b3028;
+color:#665046;
 
 }
 
+
+
+
+/* блоки */
 
 
 .section{
 
 
-background:rgba(255,250,245,.92);
+background:rgba(255,255,255,.7);
 
-margin:35px 20px;
+margin:35px 25px;
 
 padding:35px 25px;
 
-border-radius:25px;
+border-radius:0;
+
+border-top:1px solid #d9c1aa;
+
+border-bottom:1px solid #d9c1aa;
 
 text-align:center;
 
-box-shadow:0 10px 25px rgba(91,48,40,.12);
 
 }
 
 
 
-
-
 .invitation-text{
 
-font-family:'Cormorant Garamond',serif;
+font-family:'Italiana',serif;
 
-font-size:1.35rem;
+font-size:1.4rem;
 
-line-height:1.8;
+line-height:1.9;
 
-color:#56342d;
+color:#65534a;
+
+}
+
+
+
+.invitation-text p:nth-child(2){
+
+font-family:'Great Vibes',cursive!important;
+
+font-size:3rem!important;
+
+color:#b68b6a!important;
 
 }
 
@@ -154,11 +213,11 @@ color:#56342d;
 
 .parents{
 
-font-family:'Pinyon Script',cursive;
+font-family:'Italiana',serif;
 
-font-size:2.3rem;
+font-size:1.8rem;
 
-color:#9b4b45;
+color:#b68b6a;
 
 margin-top:10px;
 
@@ -168,11 +227,9 @@ margin-top:10px;
 
 .ornament{
 
-color:#c49a5a;
+color:#c9a36a;
 
-font-size:1.5rem;
-
-margin:20px;
+font-size:20px;
 
 }
 
@@ -180,67 +237,68 @@ margin:20px;
 
 /* музыка */
 
+
 .music-btn{
 
-width:75px;
-height:75px;
+position:absolute;
 
-background:#9b4b45;
+bottom:50px;
+
+width:65px;
+
+height:65px;
+
+background:#b68b6a;
 
 border-radius:50%;
 
 display:flex;
 
-justify-content:center;
 align-items:center;
+
+justify-content:center;
 
 border:3px solid white;
 
-box-shadow:0 10px 20px rgba(0,0,0,.2);
-
-animation:pulse 2s infinite;
-
 }
+
 
 
 .music-btn svg{
 
-width:30px;
-
 fill:white;
 
+width:25px;
+
 }
+
 
 
 @keyframes pulse{
 
 50%{
-transform:scale(1.08);
+transform:scale(1.1);
 }
 
 }
+
 
 
 
 /* календарь */
 
+
 .calendar-card{
 
+background:#f7eee7;
 
-background:#9b4b45;
-
-color:white;
-
-margin:35px 20px;
+margin:35px 25px;
 
 padding:35px 20px;
 
-border-radius:30px;
+border:1px solid #dcc3ad;
 
 text-align:center;
-
-box-shadow:0 15px 30px rgba(0,0,0,.2);
-
 
 }
 
@@ -248,17 +306,13 @@ box-shadow:0 15px 30px rgba(0,0,0,.2);
 
 .calendar-title{
 
+font-family:'Italiana',serif!important;
 
-font-family:'Cormorant Garamond',serif;
+font-size:2.3rem!important;
 
-font-size:2.5rem;
-
-font-style:italic;
-
-font-weight:600;
+color:#b68b6a;
 
 }
-
 
 
 
@@ -268,20 +322,17 @@ width:100%;
 
 margin-top:25px;
 
-border-collapse:collapse;
-
 }
+
 
 
 .calendar-table th{
 
-font-family:'Montserrat';
+font-size:.7rem;
 
-font-size:.8rem;
+letter-spacing:2px;
 
-opacity:.8;
-
-padding:10px;
+color:#9d8070;
 
 }
 
@@ -289,72 +340,60 @@ padding:10px;
 
 .calendar-table td{
 
+font-family:'Italiana',serif;
 
-font-family:'Cormorant Garamond',serif;
-
-font-size:1.4rem;
+font-size:1.3rem;
 
 padding:12px;
 
+color:#665046;
+
 }
 
 
 
 .active-date{
+
+color:#b68b6a!important;
 
 font-weight:bold;
 
-position:relative;
-
 }
 
 
 
-.active-date:before{
+.active-date:after{
 
 content:"♡";
 
+font-size:2.8rem;
+
 position:absolute;
 
-font-size:3rem;
+transform:translate(-25px,-15px);
 
-left:50%;
-
-top:50%;
-
-transform:translate(-50%,-55%);
-
-color:#fff;
-
-z-index:0;
+color:#c9a36a;
 
 }
 
-
-
-.active-date{
-
-z-index:1;
-
-}
 
 
 
 
 .calendar-time{
 
-font-family:'Pinyon Script';
+font-family:'Great Vibes',cursive!important;
 
-font-size:3rem;
+font-size:3rem!important;
 
-margin-top:20px;
+color:#b68b6a!important;
 
 }
 
 
 
-
 /* таймер */
+
 
 .timer-container{
 
@@ -364,23 +403,19 @@ justify-content:center;
 
 gap:8px;
 
-margin-top:20px;
-
 }
 
 
 
 .timer-item{
 
-background:rgba(255,255,255,.18);
+background:white!important;
 
-border:1px solid rgba(255,255,255,.5);
+border:1px solid #ddc5ae;
 
-padding:12px 8px;
+border-radius:0;
 
-border-radius:15px;
-
-width:70px;
+padding:10px;
 
 }
 
@@ -388,13 +423,11 @@ width:70px;
 
 .timer-item span{
 
-font-family:'Cormorant Garamond';
+color:#b68b6a!important;
 
-font-size:2rem;
+font-family:'Italiana';
 
-font-weight:bold;
-
-display:block;
+font-size:1.8rem;
 
 }
 
@@ -402,9 +435,7 @@ display:block;
 
 .timer-item label{
 
-font-size:.7rem;
-
-opacity:.8;
+color:#8c7465!important;
 
 }
 
@@ -413,35 +444,24 @@ opacity:.8;
 
 /* карта */
 
+
 .map-btn{
 
+background:#b68b6a;
+
+color:white;
+
+padding:13px 30px;
+
+border-radius:30px;
+
+text-decoration:none;
 
 display:inline-block;
 
 margin-top:20px;
 
-padding:14px 30px;
-
-border-radius:40px;
-
-background:#c49a5a;
-
-color:white;
-
-text-decoration:none;
-
-font-weight:600;
-
 letter-spacing:1px;
-
-box-shadow:0 8px 15px rgba(0,0,0,.15);
-
-}
-
-
-.map-btn:hover{
-
-background:#b18445;
 
 }
 
