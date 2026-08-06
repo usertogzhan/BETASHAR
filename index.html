@@ -31,21 +31,20 @@ body{
 
 .phone-container{
 
-    max-width:450px;
     width:100%;
+    max-width:450px;
     min-height:100vh;
 
     background:
     linear-gradient(
-    rgba(255,250,245,.75),
-    rgba(255,250,245,.9)
+    rgba(255,248,240,.45),
+    rgba(255,248,240,.65)
     ),
-    url('bet.jpeg');
+    url('bbride.jpeg');
 
     background-size:cover;
     background-position:center;
-
-    overflow:hidden;
+    background-attachment:fixed;
 
 }
 
@@ -54,22 +53,14 @@ body{
 /* главный экран */
 
 .hero{
-
 height:100vh;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
-
 align-items:center;
-
 padding:30px;
-
-
+background:transparent;
 }
-
 
 
 .hero-title-box{
@@ -164,24 +155,11 @@ color:#665046;
 
 
 .section{
-
-
-background:rgba(255,255,255,.7);
-
-margin:35px 25px;
-
-padding:35px 25px;
-
-border-radius:0;
-
-border-top:1px solid #d9c1aa;
-
-border-bottom:1px solid #d9c1aa;
-
-text-align:center;
-
-
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(5px);
 }
+
+
 
 
 
@@ -289,19 +267,9 @@ transform:scale(1.1);
 
 
 .calendar-card{
-
-background:#f7eee7;
-
-margin:35px 25px;
-
-padding:35px 20px;
-
-border:1px solid #dcc3ad;
-
-text-align:center;
-
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(5px);
 }
-
 
 
 .calendar-title{
