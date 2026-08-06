@@ -12,7 +12,7 @@
     
   <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Italiana&family=Montserrat:wght@300;400;500&display=swap');
 
 
 *{
@@ -23,9 +23,9 @@
 
 
 body{
-    background:#e8ddd2;
+    background:#eee3d8;
     font-family:'Montserrat',sans-serif;
-    color:#5c4a42;
+    color:#5b463b;
 }
 
 
@@ -35,84 +35,56 @@ body{
     max-width:450px;
     min-height:100vh;
 
+    margin:auto;
+
     background:
     linear-gradient(
-    rgba(255,248,240,.45),
-    rgba(255,248,240,.65)
+        rgba(255,250,245,0.45),
+        rgba(255,250,245,0.55)
     ),
-    url('bbride.jpeg');
+    url("bbride.jpeg");
 
     background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    background-position:center top;
+    background-repeat:no-repeat;
 
 }
 
 
 
-/* главный экран */
+/* бірінші бет */
 
 .hero{
+
 height:100vh;
+
 display:flex;
-flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
-padding:30px;
-background:transparent;
+
+position:relative;
+
+padding:25px;
+
 }
+
 
 
 .hero-title-box{
 
-background:transparent;
+background:rgba(255,255,255,.55);
+
+padding:45px 25px;
+
+width:100%;
 
 text-align:center;
 
-border:1px solid rgba(180,145,110,.4);
+border:1px solid #d6b98c;
 
-padding:50px 25px;
-
-position:relative;
-
-}
-
-
-
-.hero-title-box:before,
-.hero-title-box:after{
-
-content:"";
-
-position:absolute;
-
-width:40px;
-height:40px;
-
-border-color:#c9a36a;
-
-}
-
-
-
-.hero-title-box:before{
-
-top:-10px;
-left:-10px;
-
-border-top:2px solid;
-border-left:2px solid;
-
-}
-
-
-.hero-title-box:after{
-
-bottom:-10px;
-right:-10px;
-
-border-bottom:2px solid;
-border-right:2px solid;
+backdrop-filter:blur(5px);
 
 }
 
@@ -122,13 +94,11 @@ border-right:2px solid;
 
 font-family:'Great Vibes',cursive;
 
-font-size:5.5rem;
+font-size:90px;
 
 font-weight:400;
 
-color:#b68b6a;
-
-margin-bottom:15px;
+color:#b38b59;
 
 }
 
@@ -138,76 +108,13 @@ h2{
 
 font-family:'Italiana',serif;
 
-font-size:2rem;
-
-letter-spacing:5px;
+font-size:35px;
 
 font-weight:400;
 
-color:#665046;
+letter-spacing:6px;
 
-}
-
-
-
-
-/* блоки */
-
-
-.section{
-background:rgba(255,255,255,0.65);
-backdrop-filter:blur(5px);
-}
-
-
-
-
-
-.invitation-text{
-
-font-family:'Italiana',serif;
-
-font-size:1.4rem;
-
-line-height:1.9;
-
-color:#65534a;
-
-}
-
-
-
-.invitation-text p:nth-child(2){
-
-font-family:'Great Vibes',cursive!important;
-
-font-size:3rem!important;
-
-color:#b68b6a!important;
-
-}
-
-
-
-.parents{
-
-font-family:'Italiana',serif;
-
-font-size:1.8rem;
-
-color:#b68b6a;
-
-margin-top:10px;
-
-}
-
-
-
-.ornament{
-
-color:#c9a36a;
-
-font-size:20px;
+color:#60473b;
 
 }
 
@@ -215,20 +122,19 @@ font-size:20px;
 
 /* музыка */
 
-
 .music-btn{
 
 position:absolute;
 
-bottom:50px;
+bottom:45px;
 
 width:65px;
 
 height:65px;
 
-background:#b68b6a;
-
 border-radius:50%;
+
+background:#b38b59;
 
 display:flex;
 
@@ -241,25 +147,86 @@ border:3px solid white;
 }
 
 
-
 .music-btn svg{
-
-fill:white;
 
 width:25px;
 
+fill:white;
+
+}
+
+
+
+/* обычные блоктар */
+
+
+.section{
+
+margin:35px 20px;
+
+padding:35px 25px;
+
+background:rgba(255,255,255,.65);
+
+backdrop-filter:blur(8px);
+
+border:1px solid rgba(179,139,89,.35);
+
+border-radius:25px;
+
+text-align:center;
+
 }
 
 
 
-@keyframes pulse{
+.invitation-text{
 
-50%{
-transform:scale(1.1);
+font-family:'Italiana',serif;
+
+font-size:22px;
+
+line-height:1.8;
+
 }
 
+
+
+.aisha-name{
+
+font-family:'Great Vibes',cursive;
+
+font-size:55px;
+
+color:#b38b59;
+
 }
 
+
+
+.parents{
+
+font-family:'Italiana',serif;
+
+font-size:28px;
+
+color:#b38b59;
+
+margin-top:10px;
+
+}
+
+
+
+.ornament{
+
+color:#b38b59;
+
+margin:20px;
+
+font-size:20px;
+
+}
 
 
 
@@ -267,18 +234,32 @@ transform:scale(1.1);
 
 
 .calendar-card{
-background:rgba(255,255,255,0.65);
-backdrop-filter:blur(5px);
+
+margin:35px 20px;
+
+padding:35px 20px;
+
+background:rgba(255,255,255,.75);
+
+backdrop-filter:blur(8px);
+
+border-radius:25px;
+
+border:1px solid #d6b98c;
+
+text-align:center;
+
 }
+
 
 
 .calendar-title{
 
-font-family:'Italiana',serif!important;
+font-family:'Italiana',serif;
 
-font-size:2.3rem!important;
+font-size:38px;
 
-color:#b68b6a;
+color:#b38b59;
 
 }
 
@@ -296,11 +277,9 @@ margin-top:25px;
 
 .calendar-table th{
 
-font-size:.7rem;
+font-size:12px;
 
-letter-spacing:2px;
-
-color:#9d8070;
+color:#98765b;
 
 }
 
@@ -310,11 +289,9 @@ color:#9d8070;
 
 font-family:'Italiana',serif;
 
-font-size:1.3rem;
+font-size:22px;
 
-padding:12px;
-
-color:#665046;
+padding:10px;
 
 }
 
@@ -322,7 +299,7 @@ color:#665046;
 
 .active-date{
 
-color:#b68b6a!important;
+color:#b38b59;
 
 font-weight:bold;
 
@@ -330,38 +307,23 @@ font-weight:bold;
 
 
 
-.active-date:after{
-
-content:"♡";
-
-font-size:2.8rem;
-
-position:absolute;
-
-transform:translate(-25px,-15px);
-
-color:#c9a36a;
-
-}
-
-
-
-
+/* время */
 
 .calendar-time{
 
-font-family:'Great Vibes',cursive!important;
+font-family:'Great Vibes',cursive;
 
-font-size:3rem!important;
+font-size:45px;
 
-color:#b68b6a!important;
+color:#b38b59;
+
+margin:20px;
 
 }
 
 
 
 /* таймер */
-
 
 .timer-container{
 
@@ -377,13 +339,15 @@ gap:8px;
 
 .timer-item{
 
-background:white!important;
+background:#fff;
 
-border:1px solid #ddc5ae;
-
-border-radius:0;
+border:1px solid #d6b98c;
 
 padding:10px;
+
+border-radius:15px;
+
+width:65px;
 
 }
 
@@ -391,11 +355,13 @@ padding:10px;
 
 .timer-item span{
 
-color:#b68b6a!important;
+display:block;
 
 font-family:'Italiana';
 
-font-size:1.8rem;
+font-size:28px;
+
+color:#b38b59;
 
 }
 
@@ -403,33 +369,33 @@ font-size:1.8rem;
 
 .timer-item label{
 
-color:#8c7465!important;
+font-size:11px;
+
+color:#806454;
 
 }
 
 
 
-
 /* карта */
 
-
 .map-btn{
-
-background:#b68b6a;
-
-color:white;
-
-padding:13px 30px;
-
-border-radius:30px;
-
-text-decoration:none;
 
 display:inline-block;
 
 margin-top:20px;
 
-letter-spacing:1px;
+padding:14px 30px;
+
+background:#b38b59;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:40px;
+
+font-size:14px;
 
 }
 
@@ -461,7 +427,7 @@ letter-spacing:1px;
             <div class="invitation-text">
                 <br>
                 <p>Сіздерді аяулы қызымыз</p>
-                <p style="font-family: 'Playfair Display'; font-size: 1.5rem; color: #8a1c14; font-weight: bold;">Айшаның</p>
+               <p class="aisha-name">Айшаның</p>
                 <p>беташар тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
             </div>
             <div class="ornament">✦ ✦ ✦</div>
