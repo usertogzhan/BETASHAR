@@ -1,156 +1,482 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Беташар</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Айша — Қыз Ұзату</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* Ограничиваем ширину под мобильный телефон (как на скриншотах) */
+        .phone-container {
+            width: 100%;
+            max-width: 450px;
+            background: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow-x: hidden;
+            /* Здесь будет главное фоновое фото невесты. Замените на свое фото */
+            background: url('br-brideak.jpeg') no-repeat center top;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        /* Белые полупрозрачные плашки для контента */
+        .section {
+            background: rgba(255, 255, 255, 0.88);
+            margin: 30px 20px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        h1, .bride-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 5rem;
+            color: #8a1c14; /* Красивый бордовый/золотой оттенок */
+            margin-bottom: -15px;
+        }
+        h2 {
+            font-family: 'Montserrat', serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        /* ПЕРВЫЙ ЭКРАН (ОБЛОЖКА) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.2); /* Легкая дымка поверх фото */
+        }
+        .hero-title-box {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px 20px;
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+        /* Кнопка музыки */
+        .music-btn {
+            width: 70px;
+            height: 70px;
+            background: rgba(138, 28, 20, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        .music-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
 
-<link rel="stylesheet" href="style.css">
+        /* ТЕКСТ ПРИГЛАШЕНИЯ */
+        .invitation-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+        .parents {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #8a1c14;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* ТАЙМЕР */
+        .timer-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .timer-item {
+            background: #8a1c14;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            width: 70px;
+        }
+        .timer-item span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .timer-item label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        /* КНОПКА КАРТЫ */
+        .map-btn {
+            display: inline-block;
+            background: #2ca51a; /* Цвет 2GIS */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* ФОРМА RSVP */
+        .rsvp-form input, .rsvp-form select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .rsvp-radio-group {
+            text-align: left;
+            margin: 15px 0;
+        }
+        .rsvp-radio-group label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .submit-btn {
+            background: #8a1c14;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .ornament {
+            color: #d4af37; /* Золотой цвет для узоров */
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+        /* СТИЛИ ДЛЯ КРАСИВОГО КАЛЕНДАРЯ И ПРОЯВЛЕНИЯ ТАЙМЕРА */
+.calendar-card {
+    background: #8a1c14 !important; /* Насильно включаем бордовый фон */
+    color: #ffffff !important;     /* Делаем весь текст внутри белым */
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+.calendar-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    color: #ffffff !important;
+    margin-bottom: 20px;
+}
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.calendar-table th {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding-bottom: 15px;
+    color: #ffffff !important;
+    letter-spacing: 2px;
+}
+.calendar-table td {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    position: relative;
+    width: 14.28%;
+    color: #ffffff !important;
+}
+/* Белое контурное сердечко вокруг числа 14 */
+.active-date {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+}
+.active-date::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+    background-size: contain;
+    z-index: -1;
+}
+.calendar-time {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: #ffffff !important;
+    margin-top: 15px;
+}
+/* Стили для проявления таймера внутри карточки */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+.timer-item {
+    background: rgba(255, 255, 255, 0.2) !important; /* Делаем полупрозрачные плашки */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 65px;
+    text-align: center;
+}
+.timer-item span {
+    color: #ffffff !important; /* Проявляем цифры */
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+}
+.timer-item label {
+    color: rgba(255, 255, 255, 0.8) !important; /* Проявляем слова Күн, Сағат... */
+    font-size: 0.75rem;
+    display: block;
+    margin-top: 2px;
+}
+    </style>
 </head>
-
 <body>
 
-<audio id="music" loop>
-<source src="music.mp3" type="audio/mp3">
-</audio>
-
-<button id="musicBtn">
-🎵 Әуен қосу
-</button>
-
-<section class="hero">
-
-<div class="card">
-
-<img src="images/bride.png" class="bride">
-
-<h1 class="name">АЙЫМ</h1>
-
-<h2>БЕТАШАР</h2>
-
-</div>
-
-</section>
-
-<section class="invite">
-
-<div class="card">
-
-<h3>СІЗ(ДЕР)ДІ ҚЫЗЫМЫЗ</h3>
-
-<h1 class="beautiful">АЙЫМНЫҢ</h1>
-
-<p>
-
-БЕТАШАР ТОЙЫНА АРНАЛҒАН
-САЛТАНАТТЫ АҚ ДАСТАРХАНЫМЫЗДЫҢ
-ҚАДІРЛІ ҚОНАҒЫ БОЛУҒА
-ШАҚЫРАМЫЗ.
-
-</p>
-
-</div>
-
-</section>
-
-<section class="date">
-
-<div class="card">
-
-<h2>Той салтанаты</h2>
-
-<h3>15 ҚЫРКҮЙЕК 2026</h3>
-
-<h1>17:00</h1>
-
-</div>
-
-</section>
-
-<section class="countdown">
-
-<div class="card">
-
-<h2>Тойға дейін</h2>
-
-<div id="timer">
-
-<div>
-
-<span id="days">00</span>
-
-<p>Күн</p>
-
-</div>
-
-<div>
-
-<span id="hours">00</span>
-
-<p>Сағат</p>
-
-</div>
-
-<div>
-
-<span id="minutes">00</span>
-
-<p>Минут</p>
-
-</div>
-
-<div>
-
-<span id="seconds">00</span>
-
-<p>Секунд</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="location">
-
-<div class="card">
-
-<h2>Мекенжай</h2>
-
-<p>
-
-Royal Hall<br>
-
-Алматы қаласы
-
-</p>
-
-<a href="https://2gis.kz" target="_blank">
-
-Картадан ашу
-
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-Келіңіздер,<br>
-
-қуанышымыздың қадірлі қонағы болыңыздар!
-
-</footer>
-
-<script src="script.js"></script>
-
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="phone-container">
+        
+        <div class="hero">
+            <div class="hero-title-box">
+                <h1 class="bride-name">Aisha</h1>
+                <h2>Qyz Uzatu</h2>
+            </div>
+            
+            <div class="music-btn" id="musicToggle">
+                <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h4z"/></svg>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="invitation-text">
+                <p>Құрметті қонақтар,</p>
+                <p>ағайын-туыс, құда-жекжат,</p>
+                <p>нағашы-жиен, бөлелер,</p>
+                <p>дос-жарандар, әріптестер!</p>
+                <br>
+                <p>Сіздерді аяулы қызымыз</p>
+                <p style="font-family: 'Playfair Display'; font-size: 1.5rem; color: #8a1c14; font-weight: bold;">Айшаның</p>
+                <p>ұзату тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
+            </div>
+            <div class="ornament">✦ ✦ ✦</div>
+            <p>Той иелері:</p>
+            <div class="parents">Сайфилмалик - Ғайни</div>
+        </div>
+
+        
+            
+            <div class="calendar-card">
+            <div class="calendar-title" style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; letter-spacing: 1px;">14 тамыз 2026 жыл</div>
+            
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>ДС</th>
+                        <th>СС</th>
+                        <th>СР</th>
+                        <th>БС</th>
+                        <th>ЖМ</th>
+                        <th>СН</th>
+                        <th>ЖК</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td class="active-date">14</td> 
+                        <td>15</td>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>18</td>
+                        <td>19</td>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>25</td>
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="calendar-time" style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; letter-spacing: 1px;">сағат 17:30-да</div>
+            
+            <div class="ornament" style="color: #fff; margin-top: 25px;">✦ Тойға дейін: ✦</div>
+            
+            <div class="timer-container">
+                <div class="timer-item" style="background: rgba(255,255,255,0.2);"><span id="days">00</span><label>Күн</label></div>
+                <div class="timer-item" style="background: rgba(255,255,255,0.2);"><span id="hours">00</span><label>Сағат</label></div>
+                <div class="timer-item" style="background: rgba(255,255,255,0.2);"><span id="minutes">00</span><label>Минут</label></div>
+                <div class="timer-item" style="background: rgba(255,255,255,0.2);"><span id="seconds">00</span><label>Секунд</label></div>
+            </div>
+         
+        </div>
+
+        <div class="section">
+            <h2>Мекен-жайымыз:</h2>
+            <p style="font-weight: 600; margin-bottom: 10px;">АЛМАТЫ ҚАЛАСЫ</p>
+            <p>Алмалы ауданы,</p>
+            <p>Мақатаев 121,</p>
+            <p style="font-weight: bold; color: #8a1c14;">"АҚ МЕКЕН" МЕЙРАМХАНАСЫ</p>
+            
+            <a href="https://2gis.kz/almaty/geo/70000001025239646" target="_blank" class="map-btn">
+                2GIS Картамен ашу
+            </a>
+        </div>
+
+      
+            
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. Логика включения/выключения музыки
+        const music = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+
+        musicToggle.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().catch(e => console.log("Музыка начнет играть после взаимодействия"));
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                music.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+
+        // 2. Логика таймера обратного отсчета
+        // Установите дату тоя (Год, Месяц - 1 (0 - январь, 8 - сентябрь), День, Часы, Минуты)
+        const weddingDate = new Date(2026, 7, 14, 18, 30, 0).getTime();
+
+        const timerInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.querySelector('.timer-container').innerHTML = "<h3>Той басталды немесе өтіп кетті!</h3>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+    </script>
 </body>
 </html>
