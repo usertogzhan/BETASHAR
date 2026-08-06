@@ -10,249 +10,444 @@
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        /* Ограничиваем ширину под мобильный телефон (как на скриншотах) */
-        .phone-container {
-            width: 100%;
-            max-width: 450px;
-            background: #fff;
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            position: relative;
-            overflow-x: hidden;
-            /* Здесь будет главное фоновое фото невесты. Замените на свое фото */
-            background: url('bbride.jpeg') no-repeat center top;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        
-        /* Белые полупрозрачные плашки для контента */
-        .section {
-            background: rgba(255, 255, 255, 0.88);
-            margin: 30px 20px;
-            padding: 30px 20px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            backdrop-filter: blur(5px);
-        }
+   <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap');
 
-        h1, .bride-name {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 5rem;
-            color: #8a1c14; /* Красивый бордовый/золотой оттенок */
-            margin-bottom: -15px;
-        }
-        h2 {
-            font-family: 'Montserrat', serif;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        
-        /* ПЕРВЫЙ ЭКРАН (ОБЛОЖКА) */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 60px 20px;
-            background: rgba(255, 255, 255, 0.2); /* Легкая дымка поверх фото */
-        }
-        .hero-title-box {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 30px 20px;
-            border-radius: 20px;
-            width: 100%;
-            text-align: center;
-        }
 
-        /* Кнопка музыки */
-        .music-btn {
-            width: 70px;
-            height: 70px;
-            background: rgba(138, 28, 20, 0.8);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            border: 2px solid #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite;
-        }
-        .music-btn svg {
-            width: 30px;
-            height: 30px;
-            fill: #fff;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* ТЕКСТ ПРИГЛАШЕНИЯ */
-        .invitation-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-        .parents {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: #8a1c14;
-            margin-top: 15px;
-            font-style: italic;
-        }
 
-        /* ТАЙМЕР */
-        .timer-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        .timer-item {
-            background: #8a1c14;
-            color: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            width: 70px;
-        }
-        .timer-item span {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .timer-item label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
+body{
+    font-family:'Montserrat', sans-serif;
+    background:#eee5dc;
+    color:#4b2b25;
+}
 
-        /* КНОПКА КАРТЫ */
-        .map-btn {
-            display: inline-block;
-            background: #2ca51a; /* Цвет 2GIS */
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
 
-        
-        /* СТИЛИ ДЛЯ КРАСИВОГО КАЛЕНДАРЯ И ПРОЯВЛЕНИЯ ТАЙМЕРА */
-.calendar-card {
-    background: #8a1c14 !important; /* Насильно включаем бордовый фон */
-    color: #ffffff !important;     /* Делаем весь текст внутри белым */
-    padding: 30px 20px;
-    border-radius: 20px;
-    text-align: center;
-    margin: 30px 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+.phone-container{
+    width:100%;
+    max-width:450px;
+    min-height:100vh;
+    background:
+    linear-gradient(
+    rgba(255,248,240,.35),
+    rgba(255,248,240,.7)
+    ),
+    url('bbride.jpeg');
+
+    background-size:cover;
+    background-position:center top;
+    background-attachment:fixed;
+
+    overflow:hidden;
+    box-shadow:0 0 30px rgba(0,0,0,.15);
 }
-.calendar-title {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 2.2rem;
-    letter-spacing: 1px;
-    color: #ffffff !important;
-    margin-bottom: 20px;
+
+
+
+/* первая страница */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+
+padding:60px 20px;
+
 }
-.calendar-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+
+
+
+.hero-title-box{
+
+background:rgba(255,250,245,.88);
+
+padding:35px 20px;
+
+border-radius:25px;
+
+width:100%;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+
 }
-.calendar-table th {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 0.9rem;
-    padding-bottom: 15px;
-    color: #ffffff !important;
-    letter-spacing: 2px;
+
+
+
+
+.bride-name{
+
+font-family:'Pinyon Script',cursive;
+
+font-size:6rem;
+
+font-weight:400;
+
+color:#9b4b45;
+
+margin-bottom:-15px;
+
 }
-.calendar-table td {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    padding: 12px 0;
-    position: relative;
-    width: 14.28%;
-    color: #ffffff !important;
+
+
+
+h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2.4rem;
+
+font-weight:600;
+
+letter-spacing:3px;
+
+color:#5b3028;
+
 }
-/* Белое контурное сердечко вокруг числа 14 */
-.active-date {
-    position: relative;
-    z-index: 1;
-    font-weight: bold;
+
+
+
+.section{
+
+
+background:rgba(255,250,245,.92);
+
+margin:35px 20px;
+
+padding:35px 25px;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(91,48,40,.12);
+
 }
-.active-date::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
-    background-size: contain;
-    z-index: -1;
+
+
+
+
+
+.invitation-text{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.35rem;
+
+line-height:1.8;
+
+color:#56342d;
+
 }
-.calendar-time {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-    color: #ffffff !important;
-    margin-top: 15px;
+
+
+
+.parents{
+
+font-family:'Pinyon Script',cursive;
+
+font-size:2.3rem;
+
+color:#9b4b45;
+
+margin-top:10px;
+
 }
-/* Стили для проявления таймера внутри карточки */
-.timer-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
+
+
+
+.ornament{
+
+color:#c49a5a;
+
+font-size:1.5rem;
+
+margin:20px;
+
 }
-.timer-item {
-    background: rgba(255, 255, 255, 0.2) !important; /* Делаем полупрозрачные плашки */
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
-    padding: 10px;
-    min-width: 65px;
-    text-align: center;
+
+
+
+/* музыка */
+
+.music-btn{
+
+width:75px;
+height:75px;
+
+background:#9b4b45;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+border:3px solid white;
+
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+animation:pulse 2s infinite;
+
 }
-.timer-item span {
-    color: #ffffff !important; /* Проявляем цифры */
-    font-size: 1.5rem;
-    font-weight: bold;
-    display: block;
+
+
+.music-btn svg{
+
+width:30px;
+
+fill:white;
+
 }
-.timer-item label {
-    color: rgba(255, 255, 255, 0.8) !important; /* Проявляем слова Күн, Сағат... */
-    font-size: 0.75rem;
-    display: block;
-    margin-top: 2px;
+
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.08);
 }
-    </style>
+
+}
+
+
+
+/* календарь */
+
+.calendar-card{
+
+
+background:#9b4b45;
+
+color:white;
+
+margin:35px 20px;
+
+padding:35px 20px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:0 15px 30px rgba(0,0,0,.2);
+
+
+}
+
+
+
+.calendar-title{
+
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2.5rem;
+
+font-style:italic;
+
+font-weight:600;
+
+}
+
+
+
+
+.calendar-table{
+
+width:100%;
+
+margin-top:25px;
+
+border-collapse:collapse;
+
+}
+
+
+.calendar-table th{
+
+font-family:'Montserrat';
+
+font-size:.8rem;
+
+opacity:.8;
+
+padding:10px;
+
+}
+
+
+
+.calendar-table td{
+
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.4rem;
+
+padding:12px;
+
+}
+
+
+
+.active-date{
+
+font-weight:bold;
+
+position:relative;
+
+}
+
+
+
+.active-date:before{
+
+content:"♡";
+
+position:absolute;
+
+font-size:3rem;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-55%);
+
+color:#fff;
+
+z-index:0;
+
+}
+
+
+
+.active-date{
+
+z-index:1;
+
+}
+
+
+
+
+.calendar-time{
+
+font-family:'Pinyon Script';
+
+font-size:3rem;
+
+margin-top:20px;
+
+}
+
+
+
+
+/* таймер */
+
+.timer-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:8px;
+
+margin-top:20px;
+
+}
+
+
+
+.timer-item{
+
+background:rgba(255,255,255,.18);
+
+border:1px solid rgba(255,255,255,.5);
+
+padding:12px 8px;
+
+border-radius:15px;
+
+width:70px;
+
+}
+
+
+
+.timer-item span{
+
+font-family:'Cormorant Garamond';
+
+font-size:2rem;
+
+font-weight:bold;
+
+display:block;
+
+}
+
+
+
+.timer-item label{
+
+font-size:.7rem;
+
+opacity:.8;
+
+}
+
+
+
+
+/* карта */
+
+.map-btn{
+
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:14px 30px;
+
+border-radius:40px;
+
+background:#c49a5a;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+letter-spacing:1px;
+
+box-shadow:0 8px 15px rgba(0,0,0,.15);
+
+}
+
+
+.map-btn:hover{
+
+background:#b18445;
+
+}
+
+
+
+</style>
 </head>
 <body>
 
